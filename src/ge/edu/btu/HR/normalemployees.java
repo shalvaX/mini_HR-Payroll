@@ -20,7 +20,7 @@ public class normalemployees extends employees {
     public Map<String, Double> calculateSalary(){
         Map<String,Double> emp_sal = new HashMap<String, Double>();
         emp_sal.put(getId(),(getSalary()*(getWorkedhours()/10)+getBenefits() -
-                getDeductions()*ndfl*pension)*ndfl*pension);
+                getDeductions()/ndfl/pension)/ndfl/pension);
         return emp_sal;
     }
 }
