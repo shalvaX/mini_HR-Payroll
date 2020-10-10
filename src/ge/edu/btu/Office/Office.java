@@ -19,8 +19,16 @@ public class Office {
         this.name = name;
     }
 
-    public void addEmployee(employees id){
-        emps[employees_amount] = id;
+    public void addEmployee(employees employee){
+        emps[employees_amount] = employee;
         employees_amount++;
+    }
+
+    public int getEmployees_amount() {
+        return employees_amount;
+    }
+
+    public employees[] getEmps() {
+        return emps;
     }
 }

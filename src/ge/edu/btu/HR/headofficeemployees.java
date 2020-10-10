@@ -1,7 +1,7 @@
 package ge.edu.btu.HR;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+
+
+import ge.edu.btu.exception;
 
 public class headofficeemployees extends employees{
     private static final double pension = 0.8;
@@ -9,17 +9,18 @@ public class headofficeemployees extends employees{
 
     public headofficeemployees(){}
     public headofficeemployees(
-            String id, int salary, int benefits,
-            int deductions, Date birthdate, int workedhours
+            char id, double salary, double benefits,
+            double deductions, String birthdate, double workedhours,String position
     ){
-        super(id,salary,benefits,deductions,birthdate,workedhours);
+        super(id,salary,benefits,deductions,birthdate,workedhours,position);
     }
 
     @Override
-    public Map<String, Double> calculateSalary(){
-        Map<String,Double> emp_sal = new HashMap<String, Double>();
-        emp_sal.put(getId(),(getSalary()*getWorkedhours()+getBenefits() -
-                getDeductions()/ndfl/pension)/ndfl/pension);
-        return emp_sal;
+    public void calculateSalary() throws exception{
+        System.out.print("emp id = ");
+        System.out.println(getId());
+        System.out.println((getSalary()*getWorkedhours()+getBenefits()-getDeductions()/ndfl/pension)/ndfl/pension);
+        throw new exception("Error in calculation");
+
     }
 }
